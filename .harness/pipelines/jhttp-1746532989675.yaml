@@ -29,6 +29,15 @@ pipeline:
                     command: |-
                       echo "Welcome to Harness CI"
                       mvn -B package --file pom.xml
+              - step:
+                  type: Run
+                  identifier: run_tests
+                  name: Run Unit Tests
+                  spec:
+                    shell: Sh
+                    command: |-
+                      echo "Running tests..."
+                      mvn test
           platform:
             os: Linux
             arch: Amd64
