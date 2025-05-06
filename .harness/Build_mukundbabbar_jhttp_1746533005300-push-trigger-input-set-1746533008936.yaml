@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_mukundbabbar_jhttp_1746533005300-push-trigger-input-set
+  identifier: Build_mukundbabbar_jhttp_1746533005300pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_mukundbabbar_jhttp_1746533005300
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
