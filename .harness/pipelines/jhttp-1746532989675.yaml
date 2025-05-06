@@ -38,6 +38,17 @@ pipeline:
                     command: |-
                       echo "Running tests..."
                       mvn test
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: Docker Build and Push
+                  identifier: docker_push
+                  spec:
+                    connectorRef: MBPersonal
+                    repo: mukundbabbar/jhttp
+                    tags:
+                      - latest
+                    dockerfile: Dockerfile
+                    context: .
           platform:
             os: Linux
             arch: Amd64
