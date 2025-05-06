@@ -38,6 +38,7 @@ pipeline:
                     orgIdentifier: default
                     projectIdentifier: default_project
                     templateInputs:
+                      type: Run
                       spec:
                         command: |-
                           echo "Running tests..."
