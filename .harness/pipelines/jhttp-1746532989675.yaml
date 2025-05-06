@@ -13,24 +13,25 @@ pipeline:
     - stage:
         identifier: build
         name: build
+        type: CI
         spec:
           caching:
             enabled: true
           cloneCodebase: true
           execution:
             steps:
-              - type: Run
-                identifier: build_java_app
-                name: Build Java App
-                spec:
-                  shell: Sh
-                  command: |-
-                    echo "Welcome to Harness CI"
-                    mvn -B package --file pom.xml
+              - step:
+                  type: Run
+                  identifier: build_java_app
+                  name: Build Java App
+                  spec:
+                    shell: Sh
+                    command: |-
+                      echo "Welcome to Harness CI"
+                      mvn -B package --file pom.xml
           platform:
-            arch: Amd64
             os: Linux
+            arch: Amd64
           runtime:
-            spec: {}
             type: Docker
-        type: CI
+            spec: {}
