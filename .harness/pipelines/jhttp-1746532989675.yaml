@@ -30,14 +30,18 @@ pipeline:
                       echo "Welcome to Harness CI"
                       mvn -B package --file pom.xml
               - step:
-                  type: Run
                   identifier: run_tests
                   name: Run Unit Tests
-                  spec:
-                    shell: Sh
-                    command: |-
-                      echo "Running tests..."
-                      mvn test
+                  template:
+                    templateRef: RunTestsTemplate
+                    versionLabel: v1
+                    orgIdentifier: default
+                    projectIdentifier: default_project
+                    templateInputs:
+                      spec:
+                        command: |-
+                          echo "Running tests..."
+                          mvn test
               - step:
                   type: BuildAndPushDockerRegistry
                   name: Docker Build and Push
